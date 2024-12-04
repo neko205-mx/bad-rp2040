@@ -63,6 +63,8 @@ key_map = {
 
 uppercase_letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
+delay_time = 1.0
+
 # payload = """ """
 
 ## 启动函数 从rpayload中获取命令 判断启动方式 执行对应的函数
@@ -75,28 +77,40 @@ def main():
                 print("powershell")
                 check = powershell()
                 print(check)
+                continue
+
+            elif getMod[i][:5] == "time=":
+                print(f"Time set: {getMod[i]}")
+                settime = getMod[i][5:]
+                setTime(settime)
+                continue
+
             elif getMod[i] == "cmd":
                 print("cmd")
+                continue
+            
+            elif getMod[i] == "toggleinput":
+                 toggleinput()
+                 continue
+            
             else:
                 payload = getMod[i]
                 echo(payload)
     except Exception as e:
         print(f"Error occurred: {e}")
-        keyboard.release_all()  
+        keyboard.release_all()
         raise
     
 def echo(payload):
+    global delay_time
     try:
-        time.sleep(1)
+        time.sleep(delay_time)
         for char in payload : # payload
             print(char)
             if char == ":" or char == '"' or char == '(' or char == ')' or char in uppercase_letters:
                 test = special_case(char) # 特判函数
                 print(test)
-#                 for key in key_map[char]:
-#                     keyboard.press(key)
-#                 keyboard.release_all()
-                continue  # 跳出逻辑
+                continue  # 跳出
             
             keyboard.press(key_map[char])  # 标准逻辑
             keyboard.release_all()
@@ -119,13 +133,14 @@ def special_case(char):
     return "check"
     
 def powershell():
+    global delay_time
     try:
-        time.sleep(1)
+        time.sleep(delay_time)
 
         keyboard.press(Keycode.WINDOWS)
         keyboard.press(Keycode.R)
         keyboard.release_all()
-        time.sleep(1)
+        time.sleep(delay_time)
 
         for char in "powershell":
             print(char)
@@ -137,17 +152,31 @@ def powershell():
         keyboard.press(Keycode.ENTER)
         keyboard.release_all()
 
-        time.sleep(1)
-
-        keyboard.press(key_map['CTRL'])
-        time.sleep(1)
-        keyboard.press(key_map['SPACE'])
-        keyboard.release_all()  # 释放所有按键
     except Exception as e:
         print(f"Error occurred: {e}")
         keyboard.release_all()  
         raise
     return "OK"
+
+def toggleinput():
+    try:
+        keyboard.press(key_map['CTRL'])
+        time.sleep(1)
+        keyboard.press(key_map['SPACE'])
+        time.sleep(0.5)
+        keyboard.release_all()  # 释放所有按键
+    except Exception as e:
+        print(f"Error occurred: {e}")
+        keyboard.release_all()  
+        raise
+
+def setTime(settime):
+    try:
+        global delay_time
+        delay_time = float(settime)
+    except Exception as e:
+        print(f"Error occurred: {e}")
+    
 
 
 if __name__ == "__main__":

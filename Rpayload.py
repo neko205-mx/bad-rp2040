@@ -9,16 +9,27 @@ def Rpayload():
             
             if line == "WINDOWS":
                 win()
+                
             elif line == "LINUX":
                 linux()
+                
             elif line == "POWERSHELL":
                 powershell()
+                
             elif line == "CMD":
                 cmd()
+                
             elif line[:4] == "ECHO":
                 paylist.append(line[5:])
-            # elif line[:7] == "setTime":
-            #     paylist.append(line[8:]) # 设置相关必须放在第一条命令
+                
+            elif line == "TOGGLE_INPUT": # 切换输入法
+                toggleinput()
+                
+            elif line[:3] == "set":
+                if line[:8] == "set Time":
+                    time(line[9:])
+                    
+                 
             print(paylist)
     return paylist
         
@@ -43,7 +54,13 @@ def cmd():
     print("test_cmd")
     paylist.append("cmd")
 
+def toggleinput():
+    paylist.append("toggleinput")
 
+# SET
+
+def time(time):
+    paylist.append("time="+time)
 
 if __name__ == '__main__':
     main()
