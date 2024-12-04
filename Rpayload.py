@@ -17,6 +17,8 @@ def Rpayload():
                 cmd()
             elif line[:4] == "ECHO":
                 paylist.append(line[5:])
+            # elif line[:7] == "setTime":
+            #     paylist.append(line[8:]) # 设置相关必须放在第一条命令
             print(paylist)
     return paylist
         

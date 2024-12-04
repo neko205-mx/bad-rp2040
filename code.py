@@ -83,32 +83,7 @@ def main():
     except Exception as e:
         print(f"Error occurred: {e}")
         keyboard.release_all()  
-        raise 
-
-#         time.sleep(1)
-
-#         for char in payload : # payload
-#             print(char)
-#             if char == ":" or char == '"' or char == '(' or char == ')' or char in uppercase_letters:
-#                 test = special_case(char) # 特判函数
-#                 print(test)
-# #                 for key in key_map[char]:
-# #                     keyboard.press(key)
-# #                 keyboard.release_all()
-#                 continue  # 跳出逻辑
-            
-#             keyboard.press(key_map[char])  # 标准逻辑
-#             keyboard.release_all()
-#             time.sleep(0.1)
-
-#         keyboard.release_all()
-#         keyboard.press(Keycode.ENTER)
-#         keyboard.release_all()
-#         print("Command has been typed and Enter pressed.")
-#     except Exception as e:
-#         print(f"Error occurred: {e}")
-#         keyboard.release_all()  
-#         raise
+        raise
     
 def echo(payload):
     try:
