@@ -77,3 +77,4 @@ LINUX_RESHELL 127.0.0.1 4444
 
 ![run](https://s2.loli.net/2024/12/04/d4NjluG9nEImwUB.png)
 ![shell](https://s2.loli.net/2024/12/04/oTHgaxBFnsqUGNM.png)
+![linux](https://s2.loli.net/2024/12/05/s46Hu5qOYEkiKX3.png)
