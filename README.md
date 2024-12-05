@@ -1,6 +1,9 @@
 # bad-rp2040
 
-第一版 还要修修
+<div style="text-align: center;">
+    <img src="https://s2.loli.net/2024/12/05/EVOFhpTyHABv9Na.webp" alt="logo.webp" style="zoom:40%;" />
+</div>
+
 
 ## 使用教程
 
