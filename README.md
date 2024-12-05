@@ -1,7 +1,7 @@
 # bad-rp2040
 
 <div style="text-align: center;">
-    <img src="https://s2.loli.net/2024/12/05/EVOFhpTyHABv9Na.webp" alt="logo.webp" style="zoom:40%;" />
+    <img src="https://s2.loli.net/2024/12/05/EVOFhpTyHABv9Na.webp" alt="logo.webp" style="zoom:30%;" />
 </div>
 
 
