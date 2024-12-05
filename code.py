@@ -110,7 +110,7 @@ def echo(payload):
         time.sleep(delay_time)
         for char in payload : # payload
             print(char)
-            if char == ":" or char == '"' or char == '(' or char == ')' or char in uppercase_letters:
+            if isinstance(key_map[char], tuple): # 元组判断
                 test = special_case(char) # 特判函数
                 print(test)
                 continue  # 跳出
@@ -178,7 +178,7 @@ def linux_openshell():
     try:
         time.sleep(delay_time)
         keyboard.press(key_map['CTRL'])
-        keyboard.press(key_map['SHIFT'])
+        keyboard.press(key_map['ALT'])
         time.sleep(0.3)
         keyboard.press(key_map['t'])
         keyboard.release_all()

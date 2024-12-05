@@ -3,7 +3,7 @@ paylist = [] # 使用列表存储payload
 # payload 读取函数
 def Rpayload():
     
-    with open ('payload2.txt','r') as payload:
+    with open ('payload.txt','r') as payload:
         for line in payload:
             line = line.strip()
             
