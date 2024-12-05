@@ -78,6 +78,9 @@ def main():
                 check = powershell()
                 print(check)
                 continue
+            elif getMod[i] == "linux_openshell":
+                print("linux")
+                linux_openshell()
 
             elif getMod[i][:5] == "time=":
                 print(f"Time set: {getMod[i]}")
@@ -164,11 +167,27 @@ def toggleinput():
         time.sleep(1)
         keyboard.press(key_map['SPACE'])
         time.sleep(0.5)
-        keyboard.release_all()  # 释放所有按键
+        keyboard.release_all()
     except Exception as e:
         print(f"Error occurred: {e}")
         keyboard.release_all()  
         raise
+
+def linux_openshell():
+    global delay_time
+    try:
+        time.sleep(delay_time)
+        keyboard.press(key_map['CTRL'])
+        keyboard.press(key_map['SHIFT'])
+        time.sleep(0.3)
+        keyboard.press(key_map['t'])
+        keyboard.release_all()
+        time.sleep(delay_time)
+    except Exception as e:
+        print(f"Error occurred: {e}")
+        keyboard.release_all()  
+        raise
+
 
 def setTime(settime):
     try:

