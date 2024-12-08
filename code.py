@@ -53,7 +53,7 @@ key_map = {
     '#': (Keycode.SHIFT, Keycode.THREE), '$': (Keycode.SHIFT, Keycode.FOUR),
     '%': (Keycode.SHIFT, Keycode.FIVE), '^': (Keycode.SHIFT, Keycode.SIX),
     '&': (Keycode.SHIFT, Keycode.SEVEN), '*': (Keycode.SHIFT, Keycode.EIGHT),
-    '+': (Keycode.SHIFT, Keycode.EQUALS),
+    '+': (Keycode.SHIFT, Keycode.EQUALS),',': Keycode.COMMA,
     '[': Keycode.LEFT_BRACKET, ']': Keycode.RIGHT_BRACKET,
     '{': (Keycode.SHIFT, Keycode.LEFT_BRACKET), '}': (Keycode.SHIFT, Keycode.RIGHT_BRACKET),
     '\\': Keycode.BACKSLASH, '|': (Keycode.SHIFT, Keycode.BACKSLASH),
